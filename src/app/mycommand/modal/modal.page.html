@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Magasins</ion-title>
+      <ion-buttons slot="start">
+        <ion-button (click)="dismiss()">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="addShop()">
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  
+  <ion-content>
+
+    <ion-list >
+        <ion-item *ngFor= "let shop of shops">
+            
+            <a href="{{env.shop_url}}/shop/{{shop.value}}">{{shop.country.name}} </a>
+            <ion-buttons>
+            <ion-button (click)="copy(shop.value)">
+              <ion-icon name="copy-outline"></ion-icon>
+            </ion-button>
+            <ion-button (click)="delete(shop)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+        
+    </ion-list>
+  
+  </ion-content>
+  

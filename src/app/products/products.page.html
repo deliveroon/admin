@@ -1,0 +1,70 @@
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Commandes</ion-title>
+    <ion-buttons slot="start">
+      <ion-button [routerLink] = "['/mycommand']">
+        <ion-icon name="settings-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+
+    <ion-button (click)="logout()">
+      <ion-icon name="exit-outline"></ion-icon>
+  </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let mission of missionList" >
+      <ion-card  button="true"  style = "width: 70vw;" >
+        <div (click)="presentModal(mission)">
+          <ion-card-header>
+            <ion-card-title >{{mission.name}}</ion-card-title>  
+          </ion-card-header>
+        
+          <ion-card-content >
+            {{mission.total}} €   <ion-text color = "{{mission.color}}">{{mission.statut.name}}</ion-text>
+          </ion-card-content>
+        </div>
+        <div>
+          <ion-toolbar>
+            
+          <ion-buttons>
+            <ion-button (click)="delete(mission)">
+              <ion-icon *ngIf="mission.statut.id == 3" slot="icon-only" name="close-outline" ></ion-icon>
+            </ion-button>
+            <ion-button (click)="update(mission, 3)">
+              <ion-icon *ngIf="mission.statut.id == 2" slot="icon-only" name="trash-outline" ></ion-icon> 
+            </ion-button>
+            <ion-button (click)="update(mission, 2)">
+            <ion-icon *ngIf="mission.statut.id == 1" slot="icon-only" name="play-circle-outline" ></ion-icon>
+            </ion-button>
+          <ion-button href="{{mission.gps}}">
+            <ion-icon  *ngIf="mission.statut.id == 2"slot="icon-only" name="navigate-outline" ></ion-icon>
+          </ion-button>
+
+          
+          
+        </ion-buttons>
+          
+        </ion-toolbar>
+        </div>
+ 
+         
+ 
+    
+  
+      </ion-card>
+       
+      
+    </ion-item>
+  </ion-list>
+
+</ion-content>

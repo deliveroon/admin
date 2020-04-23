@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Mission {{mission.id}}</ion-title>
+      <ion-buttons slot="start">
+        <ion-button (click)="dismiss()">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  
+  <ion-content>
+
+    <ion-list >
+        <ion-item *ngFor= "let article of mission.articles">
+            {{article.quantity}}x {{article.name}} {{article.description}} {{article.price}} €
+        </ion-item>
+        
+    </ion-list>
+  
+  </ion-content>
+  

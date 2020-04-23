@@ -1,0 +1,7 @@
+{
+  "name": "deliveroo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
