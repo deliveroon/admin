@@ -26,6 +26,10 @@ export class ProductsPage implements OnInit {
     this.token = sessionStorage.getItem("token");
   }
 
+  openGps(mission: Mission){
+
+  }
+
   refreshLoca(){
     const headerDict = {
       'Content-Type': 'application/json',
@@ -71,7 +75,8 @@ export class ProductsPage implements OnInit {
           element.total = element.articles.reduce((a, b) => a + (b.price * b.quantity), 0);
         });
         element.color = element.statut.id == 1 ? 'danger': element.statut.id == 2 ? 'warning': 'success';
-        element.gps = "https://www.waze.com/ul?"+ element.gps +"&navigate=yes&zoom=17"
+        var regexp = / /g;
+        element.gps = "https://waze.com/ul?q=" + element.adresse.replace(regexp, "%20") +"%20" + element.postal;
       });
     },
     async (err) =>{

@@ -9,6 +9,9 @@ export class Mission{
     statut: Statut;
     total: number;
     livreur: number;
+    numero: string;
+    adresse: string;
+    postal: string;
     color: string = 'danger';
 
 }
